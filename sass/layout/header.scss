@@ -1,0 +1,19 @@
+header{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    @include marge
+}
+
+.navi{
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+
+    &__el{
+        width: 50%;
+        display: flex;
+        justify-content: space-around;
+        list-style: none;
+    }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "p6_konrath_kevin",
+  "version": "1.0.0",
+  "description": "interface utilisateur pour une application web python",
+  "main": "index.html",
+  "scripts": {
+    "sass": "sass --watch ./sass/main.scss:public/css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ikeaven/P6_Konrath_Kevin.git"
+  },
+  "author": "Kevin Konrath",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ikeaven/P6_Konrath_Kevin/issues"
+  },
+  "homepage": "https://github.com/Ikeaven/P6_Konrath_Kevin#readme"
+}

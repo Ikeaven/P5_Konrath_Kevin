@@ -1,0 +1,13 @@
+.best{
+    display: flex;
+    background-color: $third;
+
+    &_left{
+        width: 50%;
+        @include marge;
+
+    }
+    &__image{
+        @include marge;
+    }
+}
