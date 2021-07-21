@@ -1,0 +1,18 @@
+.carousel__content{
+    display: flex;
+    justify-content: space-around;
+
+    align-items: center;
+    margin-top: $top_marge;
+    // margin-left: $left_marge;
+    // margin-right: $right_marge;
+    background-color: $second;
+}
+
+.carousel__btn_left{
+    @include btn_carousel;
+}
+
+.carousel__btn_right{
+    @include btn_carousel;
+}
