@@ -15,7 +15,7 @@ async function get_request(url){
 
 async function get_meilleurs_film(url){
     array_film = await get_categories(url);
-    create_carousel(array_film, "Film les mieux notés", true);
+    create_carousel(array_film, "Meilleurs", true);
 
     let best_film = array_film[0].url
 
@@ -46,19 +46,36 @@ async function get_categories(url){
 }
 
 
+function add_event_click(carousel, categorie){
+    let btn_left = document.querySelector(".carousel__content."+categorie+ " .carousel__btn_left")
+    let btn_right = document.querySelector(".carousel__content."+categorie+ " .carousel__btn_right")
+    btn_left.addEventListener("click", () => {
+        carousel.move_left();
+    })
+    btn_right.addEventListener("click", () => {
+        carousel.move_right()
+    })
+}
+
+
+
 function create_carousel(data, categorie, isBest){
-    carousel = new Carousel(data, categorie)
+    let carousel = new Carousel(data, categorie)
 
 
     if ("content" in document.createElement("template")){
 
-        var insert = document.querySelector(".insert");
+        let insert = document.querySelector(".insert");
 
-        var template = document.querySelector(".carousel");
-        var clone = document.importNode(template.content, true);
-        var titre = clone.querySelector('h1');
+        let template = document.querySelector(".carousel");
+        let clone = document.importNode(template.content, true);
+        let titre = clone.querySelector('h1');
         titre.textContent = categorie;
-        var images = clone.querySelectorAll("img");
+
+        let carousel_content = clone.querySelector(".carousel__content");
+        carousel_content.classList.add(categorie)
+
+        let images = clone.querySelectorAll("img");
         let position = 0;
         for (image of images){
             image.setAttribute("src", data[position].image_url)
@@ -69,7 +86,7 @@ function create_carousel(data, categorie, isBest){
             insert.insertBefore(clone, insert.firstChild)
         }
         insert.appendChild(clone)
-
+        add_event_click(carousel, categorie)
 
     } else{
         // afficher un message : le naviguateur ne prend pas en charge les templates
@@ -107,16 +124,51 @@ class Carousel{
         this.list_carousels.push(this)
     }
 
-    next(){
-        this.current_position = (this.current_position + 1) % 4;
-        return this.current_position
+    next(start_value){
+        let value = (start_value + 1) % 7;
+        return value
     }
 
-    previous(){
-        this.current_position = (this.current_position - 1 ) %4;
-        if (this.current_position == -1){
-            this.current_position = this.array_films.length - 1
+    previous(start_value){
+        let value = (start_value - 1 ) % 7;
+        if (value == -1){
+            value = this.array_films.length - 1
         }
-        return this.current_position
+        return value
+    }
+
+    select_film(){
+        let position = this.current_position;
+        let visible_film = []
+        for(let i = 0; i < 4 ; i++){
+            visible_film.push(this.array_films[position])
+            position = this.next(position)
+
+        }
+        return visible_film
+    }
+
+    display_film(visible_film){
+        let carousel_content = document.querySelectorAll(".carousel__content." + this.categorie + " img");
+        let count = 0
+        for (let img of carousel_content){
+            img.setAttribute("src", visible_film[count].image_url)
+            img.setAttribute("alt", visible_film[count].title)
+            count += 1;
+        }
+    }
+
+    move_left(){
+        // console.log("left " + this.categorie)
+        this.current_position = this.next(this.current_position);
+        let visible_film = this.select_film();
+        this.display_film(visible_film)
+    }
+
+    move_right(){
+        // console.log("right " + this.categorie)
+        this.current_position = this.previous(this.current_position);
+        let visible_film = this.select_film();
+        this.display_film(visible_film)
     }
 }
