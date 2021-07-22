@@ -38,6 +38,11 @@ function add_best_btn_event(data){
     btn.addEventListener("click", ()=>{
         display_modal(data)
     })
+
+    let img = document.querySelector('.best__image')
+    img.addEventListener("click", ()=>{
+        display_modal(data)
+    })
 }
 
 async function get_categories(url){
@@ -95,7 +100,12 @@ function create_carousel(data, categorie, isBest){
         let template = document.querySelector(".carousel");
         let clone = document.importNode(template.content, true);
         let titre = clone.querySelector('h1');
-        titre.textContent = categorie;
+        if(categorie == "Meilleurs"){
+            titre.textContent = "Films les mieux notés"
+        } else {
+            titre.textContent = categorie;
+        }
+
 
         let carousel_content = clone.querySelector(".carousel__content");
         carousel_content.classList.add(categorie)
@@ -165,15 +175,12 @@ window.addEventListener("load", ()=> {
 
 class Carousel{
 
-    list_carousels = [];
-
     constructor(array_films, categorie){
         this.categorie = categorie
         this.array_films = array_films
         console.log("TEST"+ this.array_films[0].title)
         this.current_position = 0;
         this.visible_film = array_films.slice(0, 4)
-        this.list_carousels.push(this)
     }
 
     next(start_value){
