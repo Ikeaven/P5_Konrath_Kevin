@@ -34,15 +34,44 @@
         <!-- insert carousel here -->
     </section>
 
+    <div id="insert_modal">
+        <!-- insert modal here -->
+    </div>
+
     <template class="carousel">
         <h1></h1>
         <div class="carousel__content">
             <button class="carousel__btn_left">	&#9664 </button>
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
+            <img src="" alt="" class = "0">
+            <img src="" alt="" class = "1">
+            <img src="" alt="" class = "2">
+            <img src="" alt="" class = "3">
             <button class="carousel__btn_right"> &#9654 </button>
+        </div>
+    </template>
+
+    <template class="modal_template">
+        <div class="modal">
+            <button class="modal--exit">X</button>
+            <div class="modal__content">
+                <div class="modal__image">
+                    <img src="" alt="">
+                </div>
+                <ul>
+                    <span>Titre : </span><li class="modal__title"></li>
+                    <span>Genres : </span><li class="modal__genre"></li>
+                    <span>Date de sortie : </span><li class="modal__date"></li>
+                    <span>Rated :</span><li class="modal__rated"></li>
+                    <span>Score Imdb: </span><li class="modal__imdb_score"></li>
+                    <span>Réalisateurs</span><li class="modal__director"></li>
+                    <span>Ateurs : </span><li class="modal__actors"></li>
+                    <span>Durée : </span><li class="modal__duration"></li>
+                    <span>Pays d'origine : </span><li class="modal__origin"></li>
+                    <span>Résultat au Box Office : </span><li class="modal__result"></li>
+                    <span>Résumé du film : </span><li class="modal__resume"></li>
+                </ul>
+
+            </div>
         </div>
     </template>
 

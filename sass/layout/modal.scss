@@ -1,0 +1,32 @@
+.modal{
+    background-color: $second;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.modal button{
+    @include marge
+}
+
+.modal__content ul {
+    list-style: none;
+    @include marge
+}
+
+.modal__content li {
+    margin-bottom: 10px;
+}
+
+.modal__image{
+    display: flex;
+    justify-content: center;
+}
+
+.modal__content img {
+    margin-top: 25px;
+}
