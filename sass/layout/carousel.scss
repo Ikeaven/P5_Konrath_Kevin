@@ -9,9 +9,25 @@
     background-color: $second;
 }
 
+
+.carousel__content img {
+    @include mobile_only{
+        width:100px
+    }
+}
+
+
+.carousel__content img:nth-last-child(-n+2){
+    @include mobile_only{
+        display: none;
+    }
+}
+
+
 .carousel__btn_left{
     @include btn_carousel;
 }
+
 
 .carousel__btn_right{
     @include btn_carousel;

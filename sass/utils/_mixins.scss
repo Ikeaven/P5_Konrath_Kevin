@@ -7,3 +7,9 @@
 @mixin btn_carousel{
     height: fit-content;
 }
+
+@mixin mobile_only{
+    @media screen and (max-width: $mobile){
+        @content;
+    }
+}
