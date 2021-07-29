@@ -1,4 +1,7 @@
-async function get_request(url){
+import * as carousel from "./carousel.js";
+import * as modal from "./modal.js";
+
+export async function get_request(url){
     // Get request
     let response = await fetch(url)
     if (response.ok){
@@ -10,10 +13,10 @@ async function get_request(url){
 }
 
 
-async function get_best_movie(url){
+export async function get_best_movie(url){
     // display best movies info
-    array_film = await get_movie_by_categorie(url);
-    create_carousel(array_film, "Meilleurs", true);
+    let array_film = await get_movie_by_categorie(url);
+    carousel.create_carousel(array_film, "Meilleurs", true);
 
     let best_film_url = array_film[0].url
 
@@ -32,21 +35,21 @@ async function get_best_movie(url){
 }
 
 
-function add_best_btn_event(data){
+export function add_best_btn_event(data){
     // add click event to detail button
     let btn = document.querySelector('.best__button')
     btn.addEventListener("click", ()=>{
-        display_modal(data)
+        modal.display_modal(data)
     })
 
     let img = document.querySelector('.best__image')
     img.addEventListener("click", ()=>{
-        display_modal(data)
+        modal.display_modal(data)
     })
 }
 
 
-async function get_movie_by_categorie(url){
+export async function get_movie_by_categorie(url){
     // Get movies by category
     // return array of 7 movies
     let array_film = []

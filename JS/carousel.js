@@ -1,4 +1,7 @@
-function create_carousel(data, categorie, isBest){
+import * as modal from "./modal.js";
+import * as utilities from "./utilities.js"
+
+export function create_carousel(data, categorie, isBest){
     // insert carousel
     let carousel = new Carousel(data, categorie)
 
@@ -23,7 +26,7 @@ function create_carousel(data, categorie, isBest){
 
         let images = clone.querySelectorAll("img");
         let position = 0;
-        for (image of images){
+        for (let image of images){
             image.setAttribute("src", data[position].image_url)
             image.setAttribute("alt", data[position].title)
             position += 1;
@@ -41,18 +44,18 @@ function create_carousel(data, categorie, isBest){
     }
 }
 
-function add_image_event_click(carousel, categorie){
+export function add_image_event_click(carousel, categorie){
     // add click event to carousls images
     let images = document.querySelectorAll(".carousel__content."+categorie+ " img")
     for (let img of images){
         img.addEventListener("click", ()=>{
-            index = parseInt(img.className);
+            let index = parseInt(img.className);
             carousel.get_detail(index)
         })
     }
 }
 
-function add_btn_event_click(carousel, categorie){
+export function add_btn_event_click(carousel, categorie){
     // add click envent to carousels buttons
     let btn_left = document.querySelector(".carousel__content."+categorie+ " .carousel__btn_left")
     let btn_right = document.querySelector(".carousel__content."+categorie+ " .carousel__btn_right")
@@ -65,7 +68,7 @@ function add_btn_event_click(carousel, categorie){
 }
 
 
-class Carousel{
+export class Carousel{
 
     constructor(array_films, categorie){
         // init value
@@ -117,9 +120,9 @@ class Carousel{
 
     get_detail(index){
         // display modal window with film information
-        let film_details = get_request(this.visible_film[index].url);
+        let film_details = utilities.get_request(this.visible_film[index].url);
         film_details.then(res => {
-            display_modal(res);
+            modal.display_modal(res);
         })
     }
 
