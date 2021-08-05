@@ -19,5 +19,14 @@ async function main(){
 
 window.addEventListener("load", ()=> {
     // onLoad execut main()
-    main()
+    main().then(()=>{
+        let section_best = document.querySelector('.best');
+        section_best.style.visibility = "visible";
+
+        let section_carousel = document.querySelector('.insert_carousel');
+        section_carousel.style.visibility = "visible";
+
+        let spinner = document.querySelector(".spinner");
+        spinner.style.display = "none";
+    })
 });

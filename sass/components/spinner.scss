@@ -1,0 +1,19 @@
+.spinner{
+    display:block;
+    width: 100px;
+    margin: auto;
+    margin-top: 100px;
+
+    animation-name: spin;
+    animation-duration: 1500ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    } to {
+        transform: rotate(360deg);
+    }
+}

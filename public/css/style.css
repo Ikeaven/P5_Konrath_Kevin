@@ -12,6 +12,25 @@ body {
   color: #e0e1dd;
 }
 
+.spinner {
+  display: block;
+  width: 100px;
+  margin: auto;
+  margin-top: 100px;
+  animation-name: spin;
+  animation-duration: 1500ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 #logo {
   filter: invert(1);
   height: 160px;
@@ -46,6 +65,7 @@ header {
 .best {
   display: flex;
   background-color: #415a77;
+  visibility: hidden;
 }
 .best_left {
   width: 50%;
@@ -59,6 +79,10 @@ header {
   margin-bottom: 10px;
 }
 
+.insert_carousel {
+  visibility: hidden;
+}
+
 .carousel__content {
   display: flex;
   justify-content: space-around;
@@ -67,13 +91,13 @@ header {
   background-color: #1b263b;
 }
 
-@media screen and (max-width: 599px) {
+@media screen and (max-width: 767px) {
   .carousel__content img {
     width: 100px;
   }
 }
 
-@media screen and (max-width: 599px) {
+@media screen and (max-width: 767px) {
   .carousel__content img:nth-last-child(-n+2) {
     display: none;
   }

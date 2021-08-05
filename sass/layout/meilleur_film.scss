@@ -1,6 +1,7 @@
 .best{
     display: flex;
     background-color: $third;
+    visibility: hidden;
 
     &_left{
         width: 50%;
