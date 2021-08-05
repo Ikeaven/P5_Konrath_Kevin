@@ -1,0 +1,151 @@
+body {
+  background-color: #0d1b2a;
+  margin: 0px;
+}
+
+h1 {
+  text-align: center;
+}
+
+body {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: #e0e1dd;
+}
+
+.spinner {
+  display: block;
+  width: 100px;
+  margin: auto;
+  margin-top: 100px;
+  animation-name: spin;
+  animation-duration: 1500ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+#logo {
+  filter: invert(1);
+  height: 160px;
+  margin-left: -7px;
+}
+
+.best__button {
+  height: 25px;
+}
+
+header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 5%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.navi {
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
+}
+.navi__el {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+}
+
+.best {
+  display: flex;
+  background-color: #415a77;
+  visibility: hidden;
+}
+.best_left {
+  width: 50%;
+  margin-left: 5%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.best__image {
+  margin-left: 5%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.insert_carousel {
+  visibility: hidden;
+}
+
+.carousel__content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 30px;
+  background-color: #1b263b;
+}
+
+@media screen and (max-width: 767px) {
+  .carousel__content img {
+    width: 100px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .carousel__content img:nth-last-child(-n+2) {
+    display: none;
+  }
+}
+
+.carousel__btn_left {
+  height: fit-content;
+}
+
+.carousel__btn_right {
+  height: fit-content;
+}
+
+.modal {
+  background-color: #1b263b;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.modal button {
+  margin-left: 5%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.modal__content ul {
+  list-style: none;
+  margin-left: 5%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.modal__content li {
+  margin-bottom: 10px;
+}
+
+.modal__image {
+  display: flex;
+  justify-content: center;
+}
+
+.modal__content img {
+  margin-top: 25px;
+}
+
+/*# sourceMappingURL=style.css.map */
